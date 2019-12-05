@@ -15,7 +15,11 @@ mongoose.connect('mongodb://admin:admin@127.0.0.1:27017/mydb?authSource=admin', 
         console.log("连接成功")
     }
 })
-const Schema = mongoose.Schema;
-const tableDB = mongoose.model('tabledata', new Schema, 'tabledata');
+const tableChema = new mongoose.Schema({
+    name: String,
+    age: String,
+    address: String
+});
+const tableDB = mongoose.model('tabledata', tableChema, 'tabledata');
 
 module.exports = tableDB;
